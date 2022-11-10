@@ -1,0 +1,70 @@
+react vs react native
+-> 웹 / 앱
+
+윈도우에서 react native로 개발하는 방법
+-> Expo CLI vs React Native CLI
+
+Expo CLI -> 앱 개발시 자주 사용되는 네이티브 기능(위치 정보, 카메라 등)을 패키지로 묶어서 제공
+사용되지 않은 네이티브 모듈로 앱 사이즈가 커짐, 새로운 모듈 추가할 때 불편함, 그치만 개발시 편함
+
+React Native CLI -> 좀 더 첨부터 해야되는거지만 호환성 높음
+
+[개발 환경]
+nodejs(자바스크립트 런타임(?)), python(빌드시스템), 
+react native cli 설치, jdk, 안드로이드 스튜디오(프리뷰용 버추얼 환경)
+안드로이드 스튜디오 내에서 sdk 추가 설치, 환경변수 등록
+!!공식 홈페이지 <- 여기 따라서 하는게 제일 확실한듯함(버전 문제)!!
+https://reactnative.dev/docs/environment-setup
+
+참고 사이트
+https://dev-yakuza.posstree.com/ko/react-native/install-on-windows/
+https://zibu-story.tistory.com/187
+https://youtu.be/oorfevovPWw
+
+- npx 버전 0.69 버전에서 에러 있음
+npx react-native init sampleApp --version 0.68.2
+https://stackoverflow.com/questions/72768245/typeerror-cli-init-is-not-a-function-for-react-native
+
+- ADS SDK 버전이랑 react-native 버전이랑 같아야함
+init 폴더 -> android -> build.gradle -> targetSdkVersion
+https://genie247.tistory.com/158
+
+[추가 다운 모듈] (add 말고 install로)
+- 화면 전환 관련
+npm add @react-navigation/native @react-navigation/bottom-tabs @react-navigation/stack
+- 동작 제어 등 관련
+npm add react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view
+- 지도 web view 관련
+react-native-webview
+- =네트워크 연결 관련
+axios
+
+- 아이콘 관련
+npm add react-native-vector-icons
+추가 후 추가 작업
+ios: info.plist에 아래 추가
+<key>UIAppFonts</key>
+<array>
+  <string>AntDesign.ttf</string>
+  <string>Entypo.ttf</string>
+  <string>EvilIcons.ttf</string>
+  <string>Feather.ttf</string>
+  <string>FontAwesome.ttf</string>
+  <string>FontAwesome5_Brands.ttf</string>
+  <string>FontAwesome5_Regular.ttf</string>
+  <string>FontAwesome5_Solid.ttf</string>
+  <string>Foundation.ttf</string>
+  <string>Ionicons.ttf</string>
+  <string>MaterialIcons.ttf</string>
+  <string>MaterialCommunityIcons.ttf</string>
+  <string>SimpleLineIcons.ttf</string>
+  <string>Octicons.ttf</string>
+  <string>Zocial.ttf</string>
+  <string>Fontisto.ttf</string>
+</array>
+
+이후
+npx pod-install ios
+
+안드로이드: build.gradle에 아래 추가
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
