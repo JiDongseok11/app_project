@@ -4,16 +4,18 @@ import {useNavigation} from '@react-navigation/native';
 
 import styles from './styles';
 
+import Map from '../../components/map';
+
 const MapScreen = () => {
     const navigation = useNavigation();
+    console.log(Map)
     return(
         <View style={styles.container}>
             <View style={styles.sectionMap}>
                 <Pressable onPress={() => onPressSearchHandler(navigation)} style={styles.searchButton}>
                     <Text style={styles.searchButtonText}>Type to Search</Text>
                 </Pressable>
-                {/*Map*/}
-                <Text style={styles.text}>Map</Text>
+                <Map/>
             </View>
             <View style={styles.sectionButtons}>
                 <Pressable onPress={() => onPressSettingHandler(navigation)} style={styles.button}>

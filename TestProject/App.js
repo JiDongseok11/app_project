@@ -21,8 +21,9 @@ import MapScreen from './src/screens/map';
 import TestComp from './src/components/test';
 import TestScreen from './src/screens/testscreen';
 import Router from './src/navigations/router';
-import MapAPI from './src/components/kakaomap';
+// import MapAPI from './src/components/kakaomap';
 import CameraComp from './src/components/camera';
+import Map from './src/components/map';
 
 const App: () => Node = () => {
   return(
@@ -32,6 +33,7 @@ const App: () => Node = () => {
       {/*<MapScreen/>*/}
       {/* <MapAPI/> */}
       {/* <CameraComp/> */}
+      {/* <Map/> */}
     </>
   );
 }

@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'skyblue',
     },
     sectionButtons: {
-        flex: 3,
+        flex: 1,
         flexDirection: 'row',
         fontWeight: '400',
         alignItems: 'center',
@@ -22,11 +22,12 @@ const styles = StyleSheet.create({
         backgroundColor: 'yellowgreen',
     },
     sectionMap: {
-        flex: 4,
-        paddingVertical: 244,
+        flex: 6,
+        height: '100%',
+        width: '100%',
         justifyContent: 'center', 
         alignItems: 'center', 
-        backgroundColor: 'yellow',
+        // backgroundColor: 'yellow',
     },
     text: {
         fontSize: 25,

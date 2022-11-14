@@ -1,8 +1,9 @@
 import {StyleSheet, Dimensions} from 'react-native';
 
 const styles = StyleSheet.create({
-    webview: {
-
+    MapView: {
+      height: '100%',
+      width: '100%',
     },
   });
 
