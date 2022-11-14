@@ -14,7 +14,6 @@ const styles = StyleSheet.create({
         backgroundColor: 'skyblue',
     },
     sectionButtons: {
-        flex: 3,
         flexDirection: 'row',
         fontWeight: '400',
         alignItems: 'center',
@@ -48,7 +47,6 @@ const styles = StyleSheet.create({
         flex: 6
     },
     buttonContainer: {
-        flex: 1,
         marginTop: 1,
         marginBottom: 1,
         justifyContent: 'center',

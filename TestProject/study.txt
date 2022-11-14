@@ -38,6 +38,8 @@ npm add react-native-reanimated react-native-gesture-handler react-native-screen
 react-native-webview
 - =네트워크 연결 관련
 axios
+-local storage 관련
+npm install @react-native-async-storage/async-storage
 
 - 아이콘 관련
 npm add react-native-vector-icons

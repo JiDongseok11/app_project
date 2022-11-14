@@ -1,0 +1,68 @@
+const CameraComp = (props) => {
+
+    const devices = useCameraDevices();
+    const device = devices.back;
+
+    const camera = props.ref;
+
+    console.log(props);
+
+    // const camera = useRef(null);
+
+    React.useEffect( () => {
+        requestCameraPermission();
+    }, []);
+    
+    const requestCameraPermission = React.useCallback(async () => {
+        const Permission = await Camera.requestCameraPermission();
+        if (Permission === 'denied') await Linking.openSettings()
+    }, []);
+
+    if (device == null){
+        return <View/>
+    } 
+    else{
+        return(
+            <Camera
+                ref = { camera }
+                style = {{flex: 1}}
+                device = {device}
+                isActive = {true}
+                photo = {true}
+                enableZoomGestures
+            />
+        )
+    }
+}
+
+let takePic = async (camera) => {
+    const takePhotoOptions = {
+        qualityPrioritization: 'speed',
+        flash: 'off'
+    }; 
+    console.log(camera);
+    try{
+        if(camera.current == null) throw new Error('Camera Ref is Null');
+        const photo = await camera.current.takePhoto(takePhotoOptions);
+        console.log(photo.path);
+    } catch(error) {
+        console.log(error);
+    }
+}
+
+const CameraScreen = () => {
+    camera = useRef();
+
+    return(
+        <View style={styles.container}>
+            <View style={styles.cameraContainer}>
+                <CameraComp ref={camera}/>
+            </View>
+            <View style={styles.buttonContainer}>
+                <Pressable onPress={() => takePic(camera)} style={styles.button}>
+                    <Text style={styles.buttonText}>Take Picture</Text>    
+                </Pressable>
+            </View>
+        </View>
+    )
+}
